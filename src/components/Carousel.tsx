@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect, useRef } from "react";
 import { Slide } from "react-slideshow-image";
@@ -11,7 +12,7 @@ interface CarouselProps {
 
 const Carousel: React.FC<CarouselProps> = ({
   autoplay = true,
-  autoplayInterval = 3000,
+  autoplayInterval = 5000,
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPlaying, setIsPlaying] = useState(autoplay);
@@ -20,35 +21,34 @@ const Carousel: React.FC<CarouselProps> = ({
   // Static high-quality images for the carousel
   const images = [
     {
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop&crop=center",
+      url: "/public/mountain_lake.jpeg",
       alt: "Beautiful mountain landscape with lake",
       title: "Mountain Lake",
     },
     {
-      url: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&h=500&fit=crop&crop=center",
+      url: "/public/tropicalLake.jpeg",
       alt: "Tropical beach with crystal clear water",
       title: "Tropical Paradise",
     },
     {
-      url: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=500&fit=crop&crop=center",
+      url: "/public/sunlitForest.jpeg",
       alt: "Sunlit forest path with green trees",
       title: "Enchanted Forest",
     },
     {
-      url: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=800&h=500&fit=crop&crop=center",
+      url: "/public/mordernCity.jpeg",
       alt: "Modern city skyline at golden hour",
       title: "Urban Sunset",
     },
     {
-      url: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=500&fit=crop&crop=center",
+      url: "/public/desertDune.jpeg",
       alt: "Desert landscape with sand dunes",
       title: "Desert Dunes",
     },
   ];
 
-  // Properties for the Slide component following W3C accessibility guidelines
   const properties = {
-    duration: 1000,
+    duration: 5000,
     transitionDuration: 1000,
     infinite: true,
     indicators: false,
@@ -59,10 +59,9 @@ const Carousel: React.FC<CarouselProps> = ({
       setCurrentSlide(newIndex);
     },
     canSwipe: true,
-    pauseOnHover: true, // Pause on hover as per W3C guidelines
+    pauseOnHover: true,
   };
 
-  // Pause autoplay when focus enters carousel (W3C accessibility requirement)
   useEffect(() => {
     const handleFocusIn = () => {
       if (isPlaying) {
@@ -88,7 +87,6 @@ const Carousel: React.FC<CarouselProps> = ({
     }
   }, [isPlaying, autoplay]);
 
-  // Auto-advance slides when autoplay is enabled
   useEffect(() => {
     if (!isPlaying) return;
 
@@ -180,7 +178,7 @@ const Carousel: React.FC<CarouselProps> = ({
                 aria-label={image.alt}
                 tabIndex={0}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") {
+                  if (e.key === "Enter" || e.key === "space") {
                     e.preventDefault();
                     goToSlide(index);
                   }
@@ -202,6 +200,7 @@ const Carousel: React.FC<CarouselProps> = ({
           onClick={() => {
             goToPrevious();
           }}
+          role="button"
           aria-label="Go to previous slide"
           aria-controls="carousel-slides"
         >
@@ -214,6 +213,7 @@ const Carousel: React.FC<CarouselProps> = ({
           onClick={() => {
             goToNext();
           }}
+          role="button"
           aria-label="Go to next slide"
           aria-controls="carousel-slides"
         >
@@ -226,6 +226,7 @@ const Carousel: React.FC<CarouselProps> = ({
       <button
         className="play-pause-button"
         onClick={togglePlayPause}
+        role="button"
         aria-label={
           isPlaying ? "Stop automatic slide show" : "Start automatic slide show"
         }
@@ -265,6 +266,7 @@ const Carousel: React.FC<CarouselProps> = ({
       {/* Slide Counter */}
       <div
         className="slide-counter"
+        role="status"
         aria-live="polite"
         aria-label={`Slide ${currentSlide + 1} of ${images.length}`}
       >

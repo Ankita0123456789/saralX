@@ -15,12 +15,10 @@ function App() {
         <div className="features-section">
           <h2>Features</h2>
           <ul>
-            <li>4 beautiful slides images</li>
+            <li>5 beautiful slides images</li>
             <li>Next/Previous navigation buttons</li>
-            <li>Active slide indicators with borders/shadows</li>
-            <li>3-second autoplay with play/pause control</li>
-            <li>Full keyboard navigation support</li>
-            <li>Screen reader accessible</li>
+            <li>Active slide indicators with borders</li>
+            <li>5-second autoplay with play/pause control</li>
             <li>Responsive design</li>
           </ul>
         </div>
@@ -29,7 +27,7 @@ function App() {
           <h2>Accessibility Features</h2>
           <ul>
             <li>
-              <strong>Keyboard Navigation:</strong> Arrow keys, Space
+              <strong>Keyboard Navigation:</strong> Arrow keys for previous and next, Space for play/pause
             </li>
             <li>
               <strong>Screen Reader:</strong> ARIA labels and roles
