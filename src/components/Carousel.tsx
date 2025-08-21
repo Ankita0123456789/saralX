@@ -21,27 +21,27 @@ const Carousel: React.FC<CarouselProps> = ({
   // Static high-quality images for the carousel
   const images = [
     {
-      url: "/public/mountain_lake.jpeg",
+      url: "/mountain_lake.jpeg",
       alt: "Beautiful mountain landscape with lake",
       title: "Mountain Lake",
     },
     {
-      url: "/public/tropicalLake.jpeg",
+      url: "/tropicalLake.jpeg",
       alt: "Tropical beach with crystal clear water",
       title: "Tropical Paradise",
     },
     {
-      url: "/public/sunlitForest.jpeg",
+      url: "/sunlitForest.jpeg",
       alt: "Sunlit forest path with green trees",
       title: "Enchanted Forest",
     },
     {
-      url: "/public/mordernCity.jpeg",
+      url: "/mordernCity.jpeg",
       alt: "Modern city skyline at golden hour",
       title: "Urban Sunset",
     },
     {
-      url: "/public/desertDune.jpeg",
+      url: "/desertDune.jpeg",
       alt: "Desert landscape with sand dunes",
       title: "Desert Dunes",
     },
