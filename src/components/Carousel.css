@@ -1,0 +1,359 @@
+/* Carousel Container */
+.carousel-container {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Slideshow Container */
+.slideshow-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border: 3px solid transparent;
+  background: linear-gradient(45deg, #fff, #f8f9fa) padding-box,
+    linear-gradient(45deg, #007bff, #6610f2) border-box;
+}
+
+/* Individual Slide */
+.each-slide {
+  position: relative;
+}
+
+.slide-content {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 3px solid transparent;
+}
+
+.slide-content:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Active slide styling */
+.each-slide.active .slide-content {
+  border: 3px solid #007bff;
+  box-shadow: 0 0 30px rgba(0, 123, 255, 0.4),
+    inset 0 0 20px rgba(0, 123, 255, 0.1);
+}
+
+/* Slide Overlay */
+.slide-overlay {
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  width: 100%;
+  padding: 30px;
+  color: white;
+  backdrop-filter: blur(5px);
+}
+
+.slide-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.5px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation Buttons */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 10;
+  padding: 0 20px;
+}
+
+.nav-button {
+  width: 60px;
+  height: 60px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.85)
+  );
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.nav-button:hover {
+  background: linear-gradient(135deg, #fff, #f8f9fa);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+}
+
+.nav-button:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 3px;
+}
+
+.prev-button {
+  margin-left: 0;
+}
+
+.next-button {
+  margin-right: 0;
+}
+
+/* Play/Pause Button */
+.play-pause-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.play-pause-button:hover {
+  background: linear-gradient(135deg, #0056b3, #004085);
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 123, 255, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.play-pause-button:active {
+  transform: scale(0.95);
+}
+
+.play-pause-button:focus {
+  outline: 3px solid #0056b3;
+  outline-offset: 3px;
+}
+
+.play-pause-button[aria-pressed="false"] {
+  background: linear-gradient(135deg, #28a745, #1e7e34);
+}
+
+.play-pause-button[aria-pressed="false"]:hover {
+  background: linear-gradient(135deg, #1e7e34, #155724);
+}
+
+/* Slide Indicators */
+.slide-indicators {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+  padding: 20px 0;
+}
+
+.indicator {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.indicator:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transform: scale(1.3);
+  border-color: rgba(0, 123, 255, 0.5);
+}
+
+.indicator.active {
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  transform: scale(1.4);
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.6),
+    0 0 0 2px rgba(255, 255, 255, 0.8);
+  border-color: #fff;
+}
+
+.indicator:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 3px;
+}
+
+/* Slide Counter */
+.slide-counter {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #495057;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 25px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Screen Reader Only Text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .carousel-container {
+    margin: 15px;
+    padding: 20px;
+  }
+
+  .slide-content {
+    height: 350px;
+  }
+
+  .slide-title {
+    font-size: 1.4rem;
+  }
+
+  .nav-button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+  }
+
+  .play-pause-button {
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .slide-overlay {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-container {
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .slide-content {
+    height: 280px;
+  }
+
+  .slide-title {
+    font-size: 1.2rem;
+  }
+
+  .nav-button {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .slide-indicators {
+    gap: 10px;
+  }
+
+  .indicator {
+    width: 12px;
+    height: 12px;
+  }
+
+  .slide-overlay {
+    padding: 15px;
+  }
+}
+
+/* Focus Management */
+.carousel-container:focus-within {
+  outline: 3px solid #007bff;
+  outline-offset: 3px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .nav-button {
+    border: 2px solid #000;
+  }
+
+  .indicator.active {
+    border: 2px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .slide-content,
+  .nav-button,
+  .indicator {
+    transition: none;
+  }
+
+  .slide-content:hover {
+    transform: none;
+  }
+}
+
+/* Glass morphism effect for modern browsers */
+@supports (backdrop-filter: blur(10px)) {
+  .carousel-container {
+    background: rgba(248, 249, 250, 0.8);
+  }
+
+  .nav-button {
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .play-pause-button {
+    background: rgba(0, 123, 255, 0.9);
+  }
+}
